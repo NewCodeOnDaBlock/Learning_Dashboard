@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='style.css')}}">
+    <title>User Login </title>
+</head>
+<body>
+    <div class="left-container">
+        <div class="logo-container">
+            <img src="/static/images/cd_black_logo.png" alt="">
+        </div>
+        <div class="create-title">
+            <h1>Login</h1>
+        </div>
+        <form action="/login">
+            <input type="email" for="email" name="email" placeholder="Your Email Here...">
+            <input type="password" for="password" name="password" placeholder="Your Password Here...">
+            <button class='create-btn' type="submit">Login</button>
+        </form>
+
+    </div>
+    <div class="right-container">
+        <h1>Learning To Code Is Fun.</h1>
+        <img class="png2" src="/static/images/pngwing.com.png" alt="">
+        <img class="png" src="/static/images/starboa-1.png" alt="">
+    </div>
+</body>
+</html>
