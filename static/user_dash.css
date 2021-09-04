@@ -491,7 +491,8 @@ span .deploy-progress{
     transition: ease-in-out 800ms;
 }
 
-#message-slider::after{
+#message-slider.after{
 
     left: -100%;
+    transition: ease-out 800ms
 }

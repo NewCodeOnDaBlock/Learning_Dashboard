@@ -14,12 +14,18 @@ function bookMark (element){
     }
 }
 
-let popUp = document.querySelector('.message-slider');
+let popUp = document.querySelector("#message-slider");
 
 function messagePop(){
 
-    popUp.classList.add('active');
+    popUp.classList.add("active");
 
 }
 
+
+document.querySelector("#message-slider").addEventListener('click', (e) =>{
+
+    popUp.classList.add("after");
+
+});
 

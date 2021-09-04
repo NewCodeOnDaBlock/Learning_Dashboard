@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ url_for ('static', filename='user_dash.css')}}">
     <title>User Dashboard </title>
 </head>
-<body>
+<body >
     <div id="nav-container">
         <div class="nav-content1">
             <h2>Welcome!</h2>
@@ -50,7 +50,7 @@
                 </button>
         </div>
     </div>
-    <div id="main-container">
+    <div onmouseover="messagePop()" id="main-container">
         <div class="progress-box">
             <div class="progressbox-title">
                 <h2>My Progress</h2>
@@ -152,7 +152,7 @@
             </div>
         </div>
     </div>
-    <div onmousemove="messagePop()" id="message-slider">
+    <div id="message-slider">
         <p>Hey! Anything I can help you with today?</p>
     </div>
 
