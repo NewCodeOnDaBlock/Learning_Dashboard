@@ -21,7 +21,6 @@ def createAccount():
     session['password'] = request.form['password']
     return redirect ('/welcome')
 
-
 @app.route('/welcome')
 def welcome():
     return render_template('/new_user.html', full_name = session['full_name'], email = session['email'], confirm_email = session['confirm_email'], password = session['password'])

@@ -25,11 +25,14 @@ function messagePop(){
 setTimeout(messagePop, 3000)
 
 
-document.querySelector(".track-box").addEventListener('mousemove', (e)=>{
+function notificationPop(){
 
     popUp.classList.add("after");
 
-});
+}
+
+setTimeout(notificationPop, 7000)
+
 
 var clickedChat = true;
 let chatUs= document.querySelector("#chatwithus");
