@@ -22,6 +22,8 @@ function messagePop(){
 
 }
 
+setTimeout(messagePop, 3000)
+
 
 document.querySelector("#message-slider").addEventListener('click', (e) =>{
 

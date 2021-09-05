@@ -269,6 +269,7 @@ button img{
     display: flex;
     flex-direction: row;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 
@@ -284,6 +285,7 @@ button img{
     align-items: center;
     justify-content: left;
     flex-direction: row;
+    cursor: pointer;
 
 
 }
@@ -292,6 +294,7 @@ button img{
 .stack-orientation ul li {
 
     margin-left: 10px;
+    cursor: pointer;
 
 }
 
@@ -299,6 +302,7 @@ button img{
 
     width: 30px;
     height: 30px;
+    cursor: pointer;
 
 }
 
@@ -438,7 +442,7 @@ span .deploy-progress{
 .majortracks-container img {
 
     width: 300px;
-    height: 230px;
+    height: 220px;
     cursor: pointer;
 
 }
@@ -466,18 +470,19 @@ span .deploy-progress{
 #message-slider {
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     position: fixed;
-    width: 350px;
-    height: 50px;
+    width: 400px;
+    height: 60px;
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 15px;
     background-color: white;
-    box-shadow: 3px 3px 10px rgb(227, 227, 227);
+    box-shadow: 3px 3px 1px #023e8a;
     color: #023e8a;
+    border: 1px solid #023e8a;;
     border-bottom-left-radius: 0;
     top: 125px;
     left: -100%;
@@ -485,9 +490,17 @@ span .deploy-progress{
 
 }
 
+#message-slider img{
+
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #023d8ab5;
+}
+
 #message-slider.active{
 
-    left: 170px;
+    left: 140px;
     transition: ease-in-out 800ms;
 }
 
