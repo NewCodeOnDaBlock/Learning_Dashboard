@@ -40,12 +40,14 @@ let chatUs= document.querySelector("#chatwithus");
 document.querySelector('.chat').addEventListener('click', (e) => {
 
     chatUs.classList.add("active");
+    document.querySelector("#overlay").style.display = "block";
     
 })
 
-document.querySelector('#main-container').addEventListener('click', (e) => {
+document.querySelector('#overlay').addEventListener('click', (e) => {
 
     chatUs.classList.add("after");
+    document.querySelector("#overlay").style.display = "none";
 
 })
 

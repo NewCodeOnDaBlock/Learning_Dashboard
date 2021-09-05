@@ -548,6 +548,7 @@ span .deploy-progress{
     align-items: center;
     padding-top: 30px;
     padding-bottom: 30px;
+    z-index: 2;
 
 }
 
@@ -632,5 +633,22 @@ span .deploy-progress{
 #chatwithus button:hover {
 
     background-color: #355afd;
+
+}
+
+#overlay {
+
+
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    top:0;
+    right: 0;
+    bottom:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.43);
+    
+
 
 }

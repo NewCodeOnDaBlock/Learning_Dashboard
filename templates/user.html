@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ url_for ('static', filename='user_dash.css')}}">
     <title>User Dashboard </title>
 </head>
-<body >
+<body>
     <div id="nav-container">
         <div class="nav-content1">
             <h2>Welcome!</h2>
@@ -167,8 +167,7 @@
             <textarea for="message" name="message"  cols="30" rows="10"></textarea>
             <button onclick="thankYouMessage()">Send</button>
     </div>
-    
-    
+    <div id="overlay"></div>
 <script src="{{  url_for ('static', filename='script.js')}}"></script>
 </body>
 </html>
