@@ -25,9 +25,32 @@ function messagePop(){
 setTimeout(messagePop, 3000)
 
 
-document.querySelector("#message-slider").addEventListener('click', (e) =>{
+document.querySelector(".track-box").addEventListener('mousemove', (e)=>{
 
     popUp.classList.add("after");
 
 });
+
+var clickedChat = true;
+let chatUs= document.querySelector("#chatwithus");
+
+document.querySelector('.chat').addEventListener('click', (e) => {
+
+    chatUs.classList.add("active");
+    
+})
+
+document.querySelector('#main-container').addEventListener('click', (e) => {
+
+    chatUs.classList.add("after");
+
+})
+
+let customerThanks = document.querySelector('#chatwithus');
+
+function thankYouMessage(){
+
+    customerThanks.innerHTML = "<div><p>Thanks! We\'ll message you shortly! <br> You may click anywhere outside the box to exit.</p></div>"
+
+}
 

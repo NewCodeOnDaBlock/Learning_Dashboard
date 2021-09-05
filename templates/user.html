@@ -40,13 +40,13 @@
         </div>
         <div class="subnav-toggle">
                 <button class="sub-btn">
-                    <img onclick="bookMark(this)" src="/static/images/bookmark.png" alt="">
+                    <img class="bookmark" onclick="bookMark(this)" src="/static/images/bookmark.png" alt="">
                 </button>
                 <button class="sub-btn">
-                    <img onclick="alert('No New Notifications!')" src="/static/images/notification.png" alt="">
+                    <img class="notification" onclick="alert('No New Notifications!')" src="/static/images/notification.png" alt="">
                 </button>
                 <button class="sub-btn">
-                    <img src="/static/images/message.png" alt="">
+                    <img class="chat" src="/static/images/message.png" alt="">
                 </button>
         </div>
     </div>
@@ -155,6 +155,19 @@
     <div id="message-slider">
         <img src="/static/images/alayne-s.jpg" alt="">
         <p>There are no updates for you this week!</p>
+    </div>
+    <div id="chatwithus">
+    
+            <img src="/static/images/anne-s.jpg" alt="">
+            <p>Hey! It's Alayne here, Got a question? Send Us A Message.</p>
+            <label name="full_name" for="full_name">Full Name:</label>
+            <input type="text" name="full_name" for="full_name">
+            <label name="email" for="email">Email:</label>
+            <input name="email" for="email">
+            <label for="message" name="message" ></label>
+            <textarea for="message" name="message"  cols="30" rows="10"></textarea>
+            <button onclick="thankYouMessage()">Send</button>
+
     </div>
 
     

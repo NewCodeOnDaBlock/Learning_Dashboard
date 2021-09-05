@@ -165,12 +165,25 @@ body {
 
 }
 
-button img{
+
+.bookmark{
 
     width: 15px;
     height:20px;
 
+}
 
+.notification {
+
+    width: 20px;
+    height:24px;
+
+}
+
+.chat {
+
+    width: 19px;
+    height:23px;
 }
 
 /*------------------------------------------- Main body containers ---------------------*/
@@ -434,9 +447,8 @@ span .deploy-progress{
     justify-content: space-evenly;
     align-items: left;
     flex-wrap: wrap;
- 
 
-    
+
 }
 
 .majortracks-container img {
@@ -507,5 +519,118 @@ span .deploy-progress{
 #message-slider.after{
 
     left: -100%;
-    transition: ease-out 800ms
+    transition: ease-out 2000ms
+
+}
+
+/*-------------------------------- Chat Slider ---------------------*/
+
+#chatwithus {
+
+
+    position: fixed;
+    width: 300px;
+    height: 550px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 3px 3px3 1px #023e8a;
+    color: #023e8a;
+    border: 1px solid #023e8a;
+    box-shadow: 5px 5px 1px  #023e8a;
+    color: #023e8a;
+    border: 1px solid #023e8a;;
+    top: 15%;
+    right: -100%;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+
+#chatwithus form{
+
+    width: 300px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+
+}
+
+
+#chatwithus.active {
+
+    top: 130px;
+    right: 130px;
+    transition: ease-in-out 800ms;
+}
+
+#chatwithus.after {
+
+ 
+    right: -100%;
+    transition: ease-in-out 800ms;
+
+}
+
+#chatwithus img{
+
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #023e8a;
+    box-shadow: 3px 3px 1px #023e8a;
+}
+
+#chatwithus p{
+
+
+    width: 200px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#chatwithus input {
+
+    font-family: sans-serif;
+    width: 200px;
+    height: 30px;
+    padding-left: 2px;
+    border-radius: 10px;
+    border: 1px solid #023e8a;
+}
+
+#chatwithus textarea {
+
+    font-family: sans-serif;
+    margin-bottom: 10px;
+    padding-left: 2px;
+    border-radius: 10px;
+    border: 1px solid #023e8a;;
+}
+
+#chatwithus button {
+
+    color: white;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #007bff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    box-shadow: 4px 4px black;
+
+}
+
+#chatwithus button:hover {
+
+    background-color: #355afd;
+
 }
