@@ -1,4 +1,3 @@
-
 var clickedBookMark = true;
 
 function bookMark (element){
@@ -83,11 +82,6 @@ document.querySelector('.signOutLink').addEventListener('mouseout', (e) =>{
     profilePic.classList.add('after')
 
 })
-
-
-
-
-
 
 
 

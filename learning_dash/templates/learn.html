@@ -144,7 +144,7 @@
                     <h2>VIDEO LESSON:</h2>
                 </div>
                 <div class="preboot-bannercontainer">
-                    <iframe class="vid-placeorder" src="{{  url_for ('static', filename='/videos/first_project.mp4') }}" frameborder="0" width="650" height="450"></iframe>
+                    <iframe class="vid-placeorder" onload="pauseThis(this)" src="{{  url_for ('static', filename='/videos/first_project.mp4') }}" frameborder="0" width="650" height="450" sandbox></iframe>
                     <h3>Topic:</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum commodi distinctio autem voluptate possimus laudantium molestias illum maxime, dignissimos veritatis iusto 
                         reprehenderit suscipit, laborum vel provident aliquid debitis ullam architecto.</p>
