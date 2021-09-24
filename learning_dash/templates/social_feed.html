@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='social.css') }}">
+    <title>Learn & Socialize</title>
+</head>
+<body>
+<div id="main-container">
+    <div class="left-container">
+        <div class="leftcontainer-title">
+            <h4>Welcome To Your Open 
+                Network {{ this_student.first_name }}!</h4>
+        </div>
+
+        <button>
+            <a href='/student/dashboard'>Home</a>
+        </button>
+        <button>News</button>
+        <button>Announcements</button>
+        <button>Jobs</button>
+    </div>
+
+
+    <div class="middle-container">
+            <div class="status-container">
+                {% for post in all_posts %}
+                <h5>{{ post.user.first_name }} {{post.user.last_name}}:</h5>
+                <p class="time-created">{{ post.created_at }}</p>
+                    <p>{{ post.content }}</p>
+                {% endfor %}
+            </div>
+        <form action="/status-update/{{ this_student.id }}" method="post">
+        <label for="content" name="content">
+            <h5>How are you feeling today?</h5>
+        </label>
+        <input type="text" for="content" name="content">
+        {% for message in get_flashed_messages (category_filter = ['content']) %}
+            <p class='validation-alert'>{{  message  }}</p>
+        {% endfor %}
+        <button class="form-btn">Share</button>
+        </form>
+    </div>
+    
+
+    <div class="right-container">
+        <h4>Your Cohort Request</h4>
+        <div class="requests">
+                <div class="cohort-request-container">
+                    {% for request in all_requests %}
+                    <form action="/accept-request" method='post' class="request-form">
+                        <input type="hidden" value ="{{ request.id }}" name="friend_id">                    
+                        <ul>
+                            <li>
+                                <h5>{{ request.first_name }} {{ request.last_name }}</h5>  
+                            </li>
+                            <li>
+                                <button value="accept" name ="accept" class='request-btn accept'>                                    
+                                    <img class="accept-img" src="{{ url_for('static', filename='/images/accept-circle.png') }}"> 
+                                </button>
+                            </li>
+                            <li>
+                                <button value="deny" name="deny" class='request-btn deny'>
+                                    <img class="close-img" src="{{ url_for('static', filename='/images/close-circle.png') }}">     
+                                </button>
+                            </li>
+                        </ul>                   
+                    </form>
+                    {% endfor %}
+                </div>
+            </div>
+        <h4 class='cohortlist-title'>Cohort Friends</h4>
+        <div class="cohort-friends">
+        {% for friend in friends %}
+            <p>{{ friend.first_name }} {{ friend.last_name }}</p>
+        {% endfor %}
+        </div>
+        <h4 class='cohortlist-title'>Cohort List</h4>
+        <div class="list-container">
+            <div>
+                {% for student in all_students if student.id != session['logged_user'] %}
+                <ul>
+                    <li>{{ student.first_name }} {{ student.last_name }}</li>  
+                    {% if student.id not in friend_ids  %}               
+                        <li>
+                            <a class="sendFriendRequest" href="/send-request/{{student.id}}">Send Friend Request</a>
+                        </li>
+                    {% endif %}
+                </ul>               
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>    
+    <script src="{{  url_for ('static', filename='script.js')}}"></script>
+</body>
+</html>

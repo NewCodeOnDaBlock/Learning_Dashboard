@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='register.css')}}">
+    <title>Create Account</title>
+</head>
+<body>
+    <div class="left-container">
+        <div class="logo-container">
+            <img src="/static/images/code_logo.png" alt="">
+        </div>
+        <div class="create-title">
+            <h1>Login</h1>
+        </div>
+
+        <form action="/login" method="post" class="login-form form-margin">
+            <label for="email" name="email">Email:</label>
+            <input type="text" for="email" name="email" placeholder="Email">
+            {% for message in get_flashed_messages (category_filter =['email']) %}
+                <p class="validation-alert">{{  message  }}</p>
+            {% endfor %}
+            <label for="password" name="password">Password:</label>
+            <input type="password" for="password" name="password" placeholder="Password">
+            {% for message in get_flashed_messages (category_filter =['password']) %}
+                <p class="validation-alert">{{  message  }}</p>
+            {% endfor %}
+            <div class="login-nav">
+                <button class="register-btn login">Login</button>
+                <a href="/">Haven't Registered?</a>
+            </div>
+        </form>
+
+    </div>
+    <div class="right-container">
+        <h1>Welcome Back!</h1>
+        <img class="png2" src="/static/images/pngwing.com.png" alt="">
+        <img class="png" src="/static/images/starboa-1.png" alt="">
+    </div>
+    <script src="{{  url_for ('static', filename='script.js')}}"></script>
+</body>
+</html>

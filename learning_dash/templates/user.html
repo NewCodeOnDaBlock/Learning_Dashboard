@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='user_dash.css')}}">
+    <title>Student Dashboard </title>
+</head>
+<body>
+    <div id="nav-container">
+        <div class="nav-content1">
+            <h2>Welcome {{ this_student.first_name }}!</h2>
+            <p>Keep Track Of Your Journey</p>
+        </div>
+        <div class="nav-content2">
+            <img class="magnify" src="/static/images/imageedit_1_4278590166.png" alt="">
+            <input class="search-bar type="text">
+            <ul>
+                <li class="home-color">
+                    <a href="/student/dashboard">HOME</a>
+                </li>
+                <li>
+                    <a href="/student/learn">LEARN</a>
+                </li>
+                <li>
+                    <a href="/student/social" style="color: #007bff">NETWORK</a>
+                </li>
+                <img onclick="signOutPop()" class="profile-holder" src="/static/images/profile_placeholder.png" alt="">
+            </ul>
+        </div>
+        <div id="logout-popup">
+            <a href="/settings">Settings</a>
+            <a class="signOutLink" href="/logout">Sign Out</a>
+        </div>
+    </div>
+    <div id="sub-nav">
+    
+    
+        <div class="subnav-toggle">
+                <button class="sub-btn">
+                    <img class="bookmark" onclick="bookMark(this)" src="/static/images/bookmark.png" alt="">
+                </button>
+                <button class="sub-btn">
+                    <img class="notification" onclick="alert('No New Notifications!')" src="/static/images/notification.png" alt="">
+                </button>
+                <button class="sub-btn">
+                    <img class="chat" src="/static/images/message.png" alt="">
+                </button>
+        </div>
+    </div>
+<div id="main-container">
+    <div id="left-container">
+        <div class="progress-box">
+            <div class="progressbox-title">
+                <h2>My Progress</h2>
+                <p>PYTHON v21.1</p>
+            </div>
+            <div class="progressbox-compare">
+                <span class="progress-color"></span>
+                <p>On-Time Progress</p>
+                <span class="late-color"></span>
+                <p>Late Progress</p>
+            </div>
+            <div class="stack-orientation">
+                <ul>
+                    <img src="/static/images/stack_orientation.png" alt="">
+                    <li>Stack Orientation</li>
+                    <li>(5/5)</li>
+                </ul>
+            </div>
+            <span class="progress-bar">
+                <span class="orientation-progress"></span>
+            </span>
+            <div class="stack-orientation">
+                <ul>
+                    <img src="/static/images/python_fundementals.png" alt="">
+                    <li>Python</li>
+                    <li>(4/5)</li>
+                </ul>
+            </div>
+            <span class="progress-bar">
+                <span class="python-progress"></span>
+            </span>
+            <div class="stack-orientation">
+                <ul>
+                    <img src="/static/images/flask.png" alt="">
+                    <li>Flask</li>
+                    <li>(3/5)</li>
+                </ul>
+            </div>
+            <span class="progress-bar">
+                <span class="flask-progress"></span>
+            </span>
+            <div class="stack-orientation">
+                <ul>
+                    <img src="/static/images/mysql.png" alt="">
+                    <li>MySQL</li>
+                    <li>(3.5/5)</li>
+                </ul>
+            </div>
+            <span class="progress-bar">
+                <span class="mysql-progress"></span>
+            </span>
+            <div class="stack-orientation">
+                <ul>
+                    <img src="/static/images/flask.png" alt="">
+                    <li>Flask + MySQL</li>
+                    <li>(2/5)</li>
+                </ul>
+            </div>
+            <span class="progress-bar">
+                <span class="flasksql-progress"></span>
+            </span>
+            <div class="stack-orientation">
+                <ul>
+                    <img src="/static/images/flask.png" alt="">
+                    <li>AJAX v20.4</li>
+                    <li>(1/5)</li>
+                </ul>
+            </div>
+            <span class="progress-bar">
+                <span class="ajax-progress"></span>
+            </span>
+            <div class="stack-orientation">
+                <ul>
+                    <img src="/static/images/flask.png" alt="">
+                    <li>Flask Deployment 21.1</li>
+                    <li>(0/5)</li>
+                </ul>
+            </div>
+            <span class="progress-bar">
+                <span class="deploy-progress"></span>
+            </span>
+    </div>
+    </div>
+
+
+    <div id="right-container">
+        <div class="track-box">
+
+            <div class="progressbox-title">
+                <h2>Course Track</h2>
+            </div>
+            <div class="preboot-bannercontainer">
+                <h4>Mandatory Pre-Bootcamp Track</h4>
+                <img src="/static/images/prebootcamp_img.png" alt="">
+            </div>
+            <div class="major-title">
+                <h4>Your Major Tracks</h4>
+            </div>
+            <div class="majortracks-container">
+                <img src="/static/images/python_banner.png" alt="">
+                <img src="/static/images/career_servicesbanner.png" alt="">
+                <img src="/static/images/WebFund_banner.png" alt="">
+                <img class="small-banner" src="/static/images/python_ft.png" alt="">
+            </div>
+        </div>
+    </div> 
+
+
+    <div id="message-slider">
+        <img src="/static/images/alayne-s.jpg" alt="">
+        <p>{{ this_student.first_name }} There are no updates for you this week!</p>
+    </div>
+    <div id="chatwithus">
+            <img src="/static/images/anne-s.jpg" alt="">
+            <p>Hey! It's Alayne here, Got a question? Send Us A Message.</p>
+            <label name="full_name" for="full_name">Full Name:</label>
+            <input type="text" name="full_name" for="full_name">
+            <label name="email" for="email">Email:</label>
+            <input name="email" for="email">
+            <label for="message" name="message" ></label>
+            <textarea for="message" name="message"  cols="30" rows="10"></textarea>
+            <button onclick="thankYouMessage()">Send</button>
+    </div>
+    <div id="overlay"></div>
+    </div>
+
+<script src="{{  url_for ('static', filename='script.js')}}"></script>
+</body>
+</html>

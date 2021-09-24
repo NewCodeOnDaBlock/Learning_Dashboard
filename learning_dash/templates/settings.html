@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='settings.css')}}">
+    <title>Settings</title>
+</head>
+<body>
+
+    <div id="settings-container">
+        <img src="{{ url_for('static', filename='images/profile_placeholder.png')}}" alt="">
+        <a class="avatar" href="">Change Avatar</a>
+        <p>Hey {{ this_student.first_name }}, what would you like to update?</p>
+        <div class="settings-email">
+            <a href="/update/email/ {{ this_student.id }}">Update Email Address</a>
+        </div>
+        <div class="settings-password">
+            <a href="/update/password/{{ this_student.id }}">Update Password</a>
+        </div>
+        <a class="go-back" href="/student/dashboard">Go Back To Dashboard</a>
+    </div>
+    
+    <script src="{{  url_for ('static', filename='script.js')}}"></script>
+</body>
+</html>
