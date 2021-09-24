@@ -4,6 +4,10 @@ from learning_dash.models.user import User
 from learning_dash.models.request import Request
 from learning_dash import app
 from flask import flash
+from learning_dash import app, socketio
+from flask_socketio import emit, send
+
+
 
 
 @app.route('/student/social/')
