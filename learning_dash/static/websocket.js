@@ -1,7 +1,7 @@
 const socket = io.connect('http://127.0.0.1:5000/')
 
 socket.on('connect', () => {
-    console.log('hi')
+    console.log('connected!')
     socket.emit('connected', {'user_id' : userID })
 })
 
@@ -17,6 +17,8 @@ for(let link of friendRequestLinks){
         
     })
 }
+
+
 
 const requestForms = document.querySelectorAll('.request-form');
 
@@ -75,6 +77,9 @@ socket.on('request-deny', (data) => {
     // adding friend request to the html //
     console.log('request denied')
 })
+
+//------------------------------------------------//
+
 
 
 

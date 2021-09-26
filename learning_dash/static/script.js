@@ -74,7 +74,6 @@ function hideSignOutPop(){
 
     profilePic.classList.add("after");
 
-
 }
 
 document.querySelector('.signOutLink').addEventListener('mouseout', (e) =>{
@@ -82,6 +81,9 @@ document.querySelector('.signOutLink').addEventListener('mouseout', (e) =>{
     profilePic.classList.add('after')
 
 })
+
+
+//----------------------------------------------------------------------------//
 
 
 

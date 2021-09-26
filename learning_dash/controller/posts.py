@@ -16,10 +16,10 @@ def renderStudentSocial():
         data = {'id' : session ['logged_user']}
         this_student = User.getUserById(data)
         all_posts = Post.getAllPostsById()
-        all_students = User.displayAllStudents()
-        all_requests = Request.displayAllFriendRequestsById(data)
+        all_students = User.displayAllStudents() 
+        all_requests = Request.displayAllFriendRequestsById(data) #Displays a list of users that have all requested the current logged in user
         all_friends = Request.getAllfriendsById(data)
-        all_friend_ids = Request.getfriendIdById(data)
+        all_friend_ids = Request.getfriendIdById(data) 
         return render_template ('social_feed.html', this_student = this_student, all_posts = all_posts, friend_ids = all_friend_ids, all_students = all_students, all_requests = all_requests, this_request = Request.getFriendRequestById(data), friends = all_friends)
     else:
         return redirect('/')

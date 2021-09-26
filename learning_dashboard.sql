@@ -1,0 +1,10 @@
+SELECT * FROM learning_dashboard.users;
+SELECT * FROM learning_dashboard.friends;
+SELECT * FROM learning_dashboard.posts;
+SELECT * FROM posts JOIN users ON user_id WHERE user_id = users.id;
+SELECT * FROM posts ORDER BY created_at DESC;
+DELETE FROM learning_dashboard.posts;
+SELECT * FROM users JOIN friends ON user_id = users.id;
+SELECT * FROM users JOIN requests ON user_id = users.id ;
+SELECT * FROM learning_dashboard.requests;
+DELETE FROM learning_dashboard.requests;

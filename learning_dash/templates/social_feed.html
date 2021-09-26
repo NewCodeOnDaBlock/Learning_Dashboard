@@ -23,27 +23,30 @@
         <button>Jobs</button>
     </div>
 
-
+<!------------------ Post Container ------------------->
     <div class="middle-container">
             <div class="status-container">
                 {% for post in all_posts %}
                 <h5>{{ post.user.first_name }} {{post.user.last_name}}:</h5>
-                <p class="time-created">{{ post.created_at }}</p>
-                    <p>{{ post.content }}</p>
-                {% endfor %}
+                <p class="time-created">{{ post.created_at }}</p>  
+                
+                    <p id="messages">{{ post.content }}</p>
+                        
+                {% endfor %}      
             </div>
         <form action="/status-update/{{ this_student.id }}" method="post">
         <label for="content" name="content">
             <h5>How are you feeling today?</h5>
         </label>
-        <input type="text" for="content" name="content">
+        <input type="text" for="content" name="content" id="myMessage">
         {% for message in get_flashed_messages (category_filter = ['content']) %}
             <p class='validation-alert'>{{  message  }}</p>
         {% endfor %}
         <button class="form-btn">Share</button>
         </form>
     </div>
-    
+
+<!------------------ Right Container ------------------->
 
     <div class="right-container">
         <h4>Your Cohort Request</h4>
@@ -71,6 +74,8 @@
                     {% endfor %}
                 </div>
             </div>
+
+<!------------------ Cohort Friends ------------------->            
         <h4 class='cohortlist-title'>Cohort Friends</h4>
         <div class="cohort-friends">
         {% for friend in friends %}
@@ -78,6 +83,9 @@
         {% endfor %}
         </div>
         <h4 class='cohortlist-title'>Cohort List</h4>
+
+<!------------------ Cohort List ------------------->   
+
         <div class="list-container">
             <div>
                 {% for student in all_students if student.id != session['logged_user'] %}
@@ -85,7 +93,7 @@
                     <li>{{ student.first_name }} {{ student.last_name }}</li>  
                     {% if student.id not in friend_ids  %}               
                         <li>
-                            <a class="sendFriendRequest" href="/send-request/{{student.id}}">Send Friend Request</a>
+                            <a class="sendFriendRequest" href="/send-request/{{student.id}}" data-userid="{{ student.id }}">Send Friend Request</a>
                         </li>
                     {% endif %}
                 </ul>               
@@ -95,7 +103,8 @@
     </div>
 </div>
 
-    <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>    
-    <script src="{{  url_for ('static', filename='script.js')}}"></script>
+    <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>
+    <script src="{{  url_for('static', filename='websocket.js')  }}"></script>    
+    <script src="{{  url_for ('static', filename='script.js' )}}"></script>
 </body>
 </html>

@@ -34,9 +34,12 @@ class Request:
         return results
 
     @classmethod
-    def getAllfriendsById(cls, data): # This is the request that we the user has recieved from other people 
-        query = """ SELECT * FROM users JOIN friends ON user_id = users.id JOIN users AS other_user ON friend_id = other_user.id WHERE users.id = %(id)s;
-        
+    def getAllfriendsById(cls, data):  
+        #First Query Displays all the requests that was received and accepted by the 'logged_user'..
+        #Second Query Displays all the requests that were sent from the 'logged_user' and accepted..
+
+        query = """ SELECT * FROM users JOIN friends ON user_id = users.id JOIN 
+        users AS other_user ON friend_id = other_user.id WHERE users.id = %(id)s;        
         """
         results = connectToMySQL('learning_dashboard').query_db(query, data)
 
@@ -54,10 +57,10 @@ class Request:
                 'created_at' : friend ['other_user.created_at'],
                 'updated_at' : friend ['other_user.updated_at']
             }
-            friend_list.append (User(friend_data)) # This is the request that will display  we've sent the request to other users
+            friend_list.append (User(friend_data)) 
 
-        query = """ SELECT * FROM users JOIN friends ON friend_id = users.id JOIN users AS other_user ON user_id = other_user.id WHERE users.id = %(id)s;
-        
+        query = """ SELECT * FROM users JOIN friends ON friend_id = users.id JOIN 
+        users AS other_user ON user_id = other_user.id WHERE users.id = %(id)s;        
         """
         results = connectToMySQL('learning_dashboard').query_db(query, data)
 
@@ -78,10 +81,9 @@ class Request:
         return friend_list
 
 
-    @classmethod
-    def getfriendIdById(cls, data): 
+    @classmethod  #WHERE = filter for the current 'logged_user' 
+    def getfriendIdById(cls, data): #Displays all the received friend requests that were accepted by the current 'logged_user'
         query = """ SELECT friend_id FROM friends WHERE user_id = %(id)s;
-        
         """
         results = connectToMySQL('learning_dashboard').query_db(query, data)
 
@@ -91,14 +93,12 @@ class Request:
 
             friend_list.append (friend ['friend_id']) 
 
-        query = """ SELECT user_id FROM friends WHERE friend_id = %(id)s;
-        
+                                    #Displays all the friend requests that were sent by the current 'logged_user' that was accepted 
+        query = """ SELECT user_id FROM friends WHERE friend_id = %(id)s; 
         """
         results = connectToMySQL('learning_dashboard').query_db(query, data)
 
         for friend in results: 
-
-
             
             friend_list.append (friend['user_id'])
 
@@ -107,7 +107,7 @@ class Request:
 
 
     @classmethod
-    def displayAllFriendRequestsById(cls, data):
+    def displayAllFriendRequestsById(cls, data): #Displays a list of users that have all requested the current logged in user
         query = "SELECT * FROM users JOIN requests ON user_id = users.id JOIN users AS request_user ON friend_id = request_user.id WHERE users.id = %(id)s;"
         results = connectToMySQL('learning_dashboard').query_db(query, data)
         
@@ -131,7 +131,7 @@ class Request:
 
 
     @classmethod 
-    def displayFriendRequest(cls):
+    def displayFriendRequest(cls): #Displays All every single request / not needed .... for this situation
         query = " SELECT * FROM requests";
         results = connectToMySQL('learning_dashboard').query_db(query)
             
@@ -143,7 +143,7 @@ class Request:
         
 
     @classmethod
-    def getFriendRequestById(cls,data): 
+    def getFriendRequestById(cls,data): #Displays All every single request by user id and friend id/ not needed .... for this situation
         query = "SELECT * FROM requests WHERE id = %(id)s"
         results = connectToMySQL('learning_dashboard').query_db(query, data)
         return results
