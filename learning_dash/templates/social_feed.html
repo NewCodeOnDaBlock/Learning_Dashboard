@@ -102,9 +102,9 @@
         </div>
     </div>
 </div>
-
+    <input type="hidden" value="{{ session['logged_user'] }}" class="user">
     <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>
     <script src="{{  url_for('static', filename='websocket.js')  }}"></script>    
-    <script src="{{  url_for ('static', filename='script.js' )}}"></script>
+
 </body>
 </html>

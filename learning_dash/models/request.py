@@ -36,7 +36,7 @@ class Request:
     @classmethod
     def getAllfriendsById(cls, data):  
         #First Query Displays all the requests that was received and accepted by the 'logged_user'..
-        #Second Query Displays all the requests that were sent from the 'logged_user' and accepted..
+        #Second Query Displays all the requests that were sent from the 'logged_user' and accepted by the receiver..
 
         query = """ SELECT * FROM users JOIN friends ON user_id = users.id JOIN 
         users AS other_user ON friend_id = other_user.id WHERE users.id = %(id)s;        
@@ -131,7 +131,7 @@ class Request:
 
 
     @classmethod 
-    def displayFriendRequest(cls): #Displays All every single request / not needed .... for this situation
+    def displayFriendRequest(cls): #Displays every single request / not needed .... for this situation
         query = " SELECT * FROM requests";
         results = connectToMySQL('learning_dashboard').query_db(query)
             
